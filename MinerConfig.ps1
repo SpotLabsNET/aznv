@@ -99,7 +99,7 @@ $RequireRoot = Join-Path -Path  $HascismRoot      -ChildPath 'req'
       GetScript = { return 'The purpose of this script is to install some shit without all the xPackage drama!' }
       SetScript = { 
         $IsInstalling=$true
-        &C:\ProgramData\Hascism\req\cuda9\cuda_9.0.176_win10_network.exe -s
+        &C:\ProgramData\Hascism\req\cuda9\cuda_9.1.85_win10.exe -s
         while($IsInstalling)
         {
           Start-Sleep -Seconds 15
@@ -112,7 +112,7 @@ $RequireRoot = Join-Path -Path  $HascismRoot      -ChildPath 'req'
         try
         {
             Push-Location -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall'
-            $DisplayName = (Get-Item -Path '{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_CUDAToolkit_9.0' -ErrorAction SilentlyContinue).GetValue('DisplayName')
+            $DisplayName = (Get-Item -Path '{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_CUDAToolkit_9.1' -ErrorAction SilentlyContinue).GetValue('DisplayName')
             Pop-Location
 
             return ($DisplayName -eq 'CUDA Toolkit')
@@ -126,8 +126,8 @@ $RequireRoot = Join-Path -Path  $HascismRoot      -ChildPath 'req'
 
     xRemoteFile SetupFile_Cuda9
     {
-      Uri = 'https://developer.nvidia.com/compute/cuda/9.0/Prod/network_installers/cuda_9.0.176_win10_network-exe'
-      DestinationPath = 'C:\ProgramData\Hascism\req\cuda9\cuda_9.0.176_win10_network.exe'      
+      Uri = 'http://developer2.download.nvidia.com/compute/cuda/9.1/secure/Prod/local_installers/cuda_9.1.85_win10.exe'
+      DestinationPath = 'C:\ProgramData\Hascism\req\cuda9\cuda_9.1.85_win10.exe'      
       DependsOn ='[Script]ImportCudaCert'
     }
     
