@@ -126,7 +126,7 @@ $RequireRoot = Join-Path -Path  $HascismRoot      -ChildPath 'req'
 
     xRemoteFile SetupFile_Cuda9
     {
-      Uri = 'http://developer2.download.nvidia.com/compute/cuda/9.1/secure/Prod/local_installers/cuda_9.1.85_win10.exe'
+      Uri = 'https://developer.nvidia.com/compute/cuda/9.1/Prod/local_installers/cuda_9.1.85_win10'
       DestinationPath = 'C:\ProgramData\Hascism\req\cuda9\cuda_9.1.85_win10.exe'      
       DependsOn ='[Script]ImportCudaCert'
     }
